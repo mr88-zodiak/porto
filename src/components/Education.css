@@ -1,0 +1,141 @@
+.education {
+  background: var(--bg-secondary);
+}
+
+.education__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.edu-card {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 1.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  transition: none;
+}
+
+.edu-card:last-child {
+  padding-bottom: 0;
+}
+
+.edu-card__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 212, 255, 0.4);
+  margin-top: 6px;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-card__line {
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+  opacity: 0.3;
+}
+
+.edu-card__content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.edu-card:hover .edu-card__content {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.edu-card--experience .edu-card__dot {
+  background: var(--accent-purple);
+  box-shadow: 0 0 16px rgba(167, 139, 250, 0.4);
+}
+
+.edu-card--experience .edu-card__line {
+  background: linear-gradient(to bottom, var(--accent-purple), transparent);
+}
+
+.edu-card__type {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-coral);
+  margin-bottom: 0.35rem;
+  margin-right: 0.75rem;
+}
+
+.edu-card--experience .edu-card__type {
+  color: var(--accent-purple);
+}
+
+.edu-card__period {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.edu-card__degree {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.edu-card__school {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.edu-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.edu-card__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.edu-card__highlights li {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-purple);
+  background: rgba(167, 139, 250, 0.1);
+  border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+  .edu-card {
+    grid-template-columns: 28px 1fr;
+    gap: 0 1rem;
+  }
+
+  .edu-card__line {
+    left: 13px;
+  }
+
+  .edu-card__content {
+    padding: 1.25rem 1.5rem;
+  }
+}

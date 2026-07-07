@@ -1,0 +1,31 @@
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.starfield__star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 0 12px rgba(0, 212, 255, 0.25);
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.starfield__star:nth-child(3n) {
+  background: rgba(0, 212, 255, 0.9);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.7), 0 0 16px rgba(0, 212, 255, 0.3);
+}
+
+.starfield__star:nth-child(5n) {
+  background: rgba(167, 139, 250, 0.85);
+  box-shadow: 0 0 6px rgba(167, 139, 250, 0.6);
+}
+
+.starfield__star:nth-child(7n) {
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
