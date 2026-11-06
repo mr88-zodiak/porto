@@ -8,7 +8,7 @@ export const personalInfo = {
   github: "https://github.com/mr88-zodiak",
   linkedin: "https://www.linkedin.com/in/bima-putra-b56a703b6/",
   // photo: "/profile-bima.jpg",
-  photo: "https://porto-iador16rv-mr88-zodiaks-projects.vercel.app/images.jpeg",
+  photo: "/profile-bima.jpg",
   resumeUrl: "#",
 };
 
