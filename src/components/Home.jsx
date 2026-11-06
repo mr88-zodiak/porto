@@ -1,10 +1,10 @@
-import { useRef } from 'react';
-import { animate, createTimeline, stagger } from 'animejs';
-import { personalInfo, skills, rotatingRoles } from '../data/portfolio';
-import { useAnimeOnMount } from '../hooks/useAnimeOnMount';
-import { useRotatingText } from '../hooks/useRotatingText';
-import Starfield from './Starfield';
-import './Home.css';
+import { useRef } from "react";
+import { animate, createTimeline, stagger } from "animejs";
+import { personalInfo, skills, rotatingRoles } from "../data/portfolio";
+import { useAnimeOnMount } from "../hooks/useAnimeOnMount";
+import { useRotatingText } from "../hooks/useRotatingText";
+import Starfield from "./Starfield";
+import "./Home.css";
 
 export default function Home() {
   const sectionRef = useRef(null);
@@ -15,73 +15,97 @@ export default function Home() {
     if (!container) return;
 
     const revealAll = () => {
-      container.classList.add('hero--visible');
+      container.classList.add("hero--visible");
     };
 
-    const shapes = container.querySelectorAll('.hero__shape');
+    const shapes = container.querySelectorAll(".hero__shape");
     animate(shapes, {
       translateY: { from: -20, to: 20 },
       rotate: { from: 0, to: 360 },
       duration: 8000,
-      ease: 'inOutSine',
+      ease: "inOutSine",
       loop: true,
       alternate: true,
       delay: stagger(500),
     });
 
     const timeline = createTimeline({
-      defaults: { ease: 'outExpo' },
+      defaults: { ease: "outExpo" },
       onComplete: revealAll,
     });
 
     timeline
-      .add(container.querySelector('.hero__photo-wrap'), {
+      .add(container.querySelector(".hero__photo-wrap"), {
         opacity: [0, 1],
         scale: [0.9, 1],
         duration: 1000,
       })
-      .add(container.querySelector('.hero__greeting'), {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 700,
-      }, '-=700')
-      .add(container.querySelector('.hero__name'), {
-        opacity: [0, 1],
-        translateY: [40, 0],
-        duration: 900,
-      }, '-=500')
-      .add(container.querySelector('.hero__rotating'), {
-        opacity: [0, 1],
-        translateY: [30, 0],
-        duration: 800,
-      }, '-=600')
-      .add(container.querySelector('.hero__tagline'), {
-        opacity: [0, 1],
-        translateY: [25, 0],
-        duration: 800,
-      }, '-=500')
-      .add(container.querySelector('.hero__actions'), {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 700,
-      }, '-=400')
-      .add(container.querySelectorAll('.hero__skill'), {
-        opacity: [0, 1],
-        scale: [0.8, 1],
-        duration: 500,
-        delay: stagger(60),
-      }, '-=300');
+      .add(
+        container.querySelector(".hero__greeting"),
+        {
+          opacity: [0, 1],
+          translateY: [20, 0],
+          duration: 700,
+        },
+        "-=700"
+      )
+      .add(
+        container.querySelector(".hero__name"),
+        {
+          opacity: [0, 1],
+          translateY: [40, 0],
+          duration: 900,
+        },
+        "-=500"
+      )
+      .add(
+        container.querySelector(".hero__rotating"),
+        {
+          opacity: [0, 1],
+          translateY: [30, 0],
+          duration: 800,
+        },
+        "-=600"
+      )
+      .add(
+        container.querySelector(".hero__tagline"),
+        {
+          opacity: [0, 1],
+          translateY: [25, 0],
+          duration: 800,
+        },
+        "-=500"
+      )
+      .add(
+        container.querySelector(".hero__actions"),
+        {
+          opacity: [0, 1],
+          translateY: [20, 0],
+          duration: 700,
+        },
+        "-=400"
+      )
+      .add(
+        container.querySelectorAll(".hero__skill"),
+        {
+          opacity: [0, 1],
+          scale: [0.8, 1],
+          duration: 500,
+          delay: stagger(60),
+        },
+        "-=300"
+      );
 
     const fallbackTimer = setTimeout(revealAll, 1500);
 
     return () => {
       clearTimeout(fallbackTimer);
-      container.classList.remove('hero--visible');
+      container.classList.remove("hero--visible");
     };
   });
 
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -97,30 +121,32 @@ export default function Home() {
       <div className="container hero__layout">
         <div className="hero__content">
           <p className="hero__greeting">
-            Halo, perkenalkan
+            Hello, let me introduce myself my name is
           </p>
 
-          <h1 className="hero__name">
-            {personalInfo.name}
-          </h1>
+          <h1 className="hero__name">{personalInfo.name}</h1>
 
           <p className="hero__rotating">
-            <span className="hero__rotating-prefix">Hello, saya bisa menjadi </span>
+            <span className="hero__rotating-prefix">Hello, I can be </span>
             <span className="hero__rotating-text" ref={rotatingTextRef}>
               {rotatingRoles[0]}
             </span>
           </p>
 
-          <p className="hero__tagline">
-            {personalInfo.tagline}
-          </p>
+          <p className="hero__tagline">{personalInfo.tagline}</p>
 
           <div className="hero__actions">
-            <button className="btn btn-primary" onClick={() => scrollTo('contact')}>
+            <button
+              className="btn btn-primary"
+              onClick={() => scrollTo("contact")}
+            >
               Contact Me
             </button>
-            <button className="btn btn-outline" onClick={() => scrollTo('projects')}>
-              Lihat Projek
+            <button
+              className="btn btn-outline"
+              onClick={() => scrollTo("projects")}
+            >
+              View project
             </button>
           </div>
 
@@ -147,7 +173,7 @@ export default function Home() {
 
       <button
         className="hero__scroll"
-        onClick={() => scrollTo('education')}
+        onClick={() => scrollTo("education")}
         aria-label="Scroll to education"
       >
         <span className="hero__scroll-line" />
